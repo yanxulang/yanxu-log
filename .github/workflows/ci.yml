@@ -133,8 +133,7 @@ jobs:
           set -euo pipefail
           if [[ "$RUNNER_OS" == "Windows" ]]; then
             yanxu="$GITHUB_WORKSPACE/.yanxu-minimum/target/debug/yanxu.exe"
-            windows_cache="$(cygpath -w "$RUNNER_TEMP/yanxu-cache")"
-            export YANXU_CACHE="\\\\?\\${windows_cache}"
+            export YANXU_CACHE="$(cygpath -w "$RUNNER_TEMP/yanxu-cache")"
           else
             yanxu="$GITHUB_WORKSPACE/.yanxu-minimum/target/debug/yanxu"
           fi
@@ -158,5 +157,11 @@ jobs:
           test ! -e .tmp-言录服务日志.jsonl
           "$yanxu" 包 锁 .
           "$yanxu" 包 锁 --离线 .
+          if [[ "$RUNNER_OS" == "Windows" ]]; then
+            test ! -e vendor
+            "$yanxu" 包 协议 '{"operation":"vendor","path":".","output":"vendor","offline":true}' > "$RUNNER_TEMP/vendor-response.json"
+            jq -e '.ok == true and (.result.packages | length) == 1' "$RUNNER_TEMP/vendor-response.json"
+          fi
           "$yanxu" 编 . -o "$RUNNER_TEMP/yanxu-log.yxb" --release
           test -s "$RUNNER_TEMP/yanxu-log.yxb"
+          if [[ "$RUNNER_OS" == "Windows" ]]; then rm -rf vendor; fi
