@@ -133,6 +133,8 @@ jobs:
           set -euo pipefail
           if [[ "$RUNNER_OS" == "Windows" ]]; then
             yanxu="$GITHUB_WORKSPACE/.yanxu-minimum/target/debug/yanxu.exe"
+            windows_cache="$(cygpath -w "$RUNNER_TEMP/yanxu-cache")"
+            export YANXU_CACHE="\\\\?\\${windows_cache}"
           else
             yanxu="$GITHUB_WORKSPACE/.yanxu-minimum/target/debug/yanxu"
           fi
