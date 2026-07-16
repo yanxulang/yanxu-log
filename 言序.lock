@@ -1,22 +1,22 @@
 lock_version = 2
-manifest_checksum = "29939829c41ccc84229d644e4f4fe9ac70926f37500356b76e0a7da8e3042769"
-target = "x86_64-pc-windows-msvc"
-generator = "1.1.6"
+manifest_checksum = "c4c5ff3c2fc2074cc99edf9d2ce0a5997fff7b4040a0c3dd0d36ef5fe10355bc"
+target = "aarch64-apple-darwin"
+generator = "1.1.8"
 
 [root_dependencies]
-"言据" = "言据@1.1.2#9f376cc5bbdb-891004db3658a6e4"
+"言据" = "言据@1.2.0#9f376cc5bbdb-def74ca3b32fd504"
 
 [root_dev_dependencies]
 
 [[package]]
-id = "言据@1.1.2#9f376cc5bbdb-891004db3658a6e4"
+id = "言据@1.2.0#9f376cc5bbdb-def74ca3b32fd504"
 name = "言据"
-version = "1.1.2"
+version = "1.2.0"
 source = "git:https://github.com/yanxulang/yanju.git"
-revision = "765d9dd623db901a3e71aa4759dbcd77563cb3a9"
-checksum = "891004db3658a6e46386db9c34b201206b23513b03665c3997544f8eb6b8364e"
+revision = "8d5c206982325ae8ff9a258c87368f308bcd393a"
+checksum = "def74ca3b32fd5040bccce9ecd79fb139ce290a4e65a1def1f8b8deb3ae4732d"
 entry = "src/言据.yx"
-target = "x86_64-pc-windows-msvc"
+target = "aarch64-apple-darwin"
 minimum_yanxu = ">=1.1.6"
 
 [package.dependencies]
