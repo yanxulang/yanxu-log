@@ -9,7 +9,7 @@
 作者 = ["言序社区"]
 
 [依赖]
-言据 = { git = "https://github.com/yanxulang/yanju.git", 修订 = "main", 版 = "^1" }
+言据 = { git = "https://github.com/yanxulang/yanju.git", 修订 = "v1.2.0", 版 = "^1.2" }
 
 [权限]
 文件 = ["."]
